@@ -24,7 +24,7 @@ mongoose.connect(process.env.DATABASE_URI, {
     .catch((err) => console.log(err))
 
 // Routes
-app.use('/api/', require('./routes/routes'))
+app.use('/api/', require('./route/route'))
 
 __dirname = path.resolve()
 if(process.env.NODE_ENV === 'production') {

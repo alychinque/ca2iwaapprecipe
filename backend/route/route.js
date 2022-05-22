@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const API = require('../controllers/api')
+const API = require('../controller/api')
 
 router.route('/')
   .post(API.createRecipe)
