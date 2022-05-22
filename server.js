@@ -2,7 +2,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const path = require('path')
 
 require('dotenv').config()
 const app = express()
@@ -26,9 +25,8 @@ mongoose.connect(process.env.DATABASE_URI, {
 // Routes
 app.use('/api/', require('./route/route'))
 
-__dirname = path.resolve() 
 if(process.env.NODE_ENV === 'production') {
-    app.get(express.static('dist/'))
+    app.get(express.static(__dirname + '/dist/'))
     app.get('*', (req, res) => {
         res.sendFile(__dirname + '/dist/index.html')
     })
