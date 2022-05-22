@@ -30,7 +30,8 @@ __dirname = path.resolve()
 if(process.env.NODE_ENV === 'production') {
     app.get(express.static(__dirname + '/dist/'))
     app.get('*', (req, res) => {
-        console.log('prod')
+        console.log(__dirname + '/dist/')
+        console.log(__dirname + '/dist/index.html')
         res.sendFile(__dirname + '/dist/index.html')
     })
 } else {
