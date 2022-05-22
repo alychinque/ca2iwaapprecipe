@@ -28,11 +28,9 @@ app.use('/api/', require('./route/route'))
 
 __dirname = path.resolve()
 if(process.env.NODE_ENV === 'production') {
-    app.get(express.static(__dirname + '/dist/'))
+    app.get(express.static('/dist/'))
     app.get('*', (req, res) => {
-        console.log(__dirname + '/dist/')
-        console.log(__dirname + '/dist/index.html')
-        res.sendFile(__dirname + '/dist/index.html')
+        res.sendFile('/dist/index.html')
     })
 } else {
     app.get('/', (req, res) => {
